@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct IntuitionApp: App {
     var body: some Scene {
+        
         WindowGroup {
             ContentView()
         }
