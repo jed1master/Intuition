@@ -10,20 +10,17 @@ import SwiftUI
 
 struct ChooseView: View {
     
-    @StateObject private var controller = Controller()
+    @EnvironmentObject private var controller: Controller
     
-    @State private var isShowingEndView: Bool = false
-    
+//    @State private var isShowingEndView: Bool = false
+    @State private var isShowingScoreBoardView: Bool = false
     @State private var isButtonsHidden:Bool = true
     
     private var leftButtonColour: Color {
-        
         isButtonsHidden ? Color.white : colorForState(state: controller.buttonStatus[0])
     }
     private var rightButtonColour: Color {
-        
         isButtonsHidden ? Color.white : colorForState(state: controller.buttonStatus[1])
-       
     }
     
     private func colorForState(state: Bool) -> Color {
@@ -35,13 +32,13 @@ struct ChooseView: View {
             HStack {
                 Text("Lives x \(controller.lives)")
                     .frame(width: 100, height: 50)
-//                    .font(.custom("matrix", size: 20))
+                //                    .font(.custom("matrix", size: 20))
                     .foregroundStyle(.green)
                     .padding()
                 Spacer()
                 Text("Score x \(controller.score)")
                     .frame(width: 100, height: 50)
-//                    .font(.custom("matrix", size: 20))
+                //                    .font(.custom("matrix", size: 20))
                     .foregroundColor(.green)
                     .padding()
             }
@@ -78,9 +75,13 @@ struct ChooseView: View {
             }
             .padding(.bottom, 40)
         }
-        .fullScreenCover(isPresented: $isShowingEndView, onDismiss: didDismiss, content: {
-            EndView()
+//        .fullScreenCover(isPresented: $isShowingEndView, onDismiss: didDismiss, content: {
+//            EndView()
+//        })
+        .fullScreenCover(isPresented: $isShowingScoreBoardView, onDismiss: didDismiss, content: {
+            ScoreBoardView()
         })
+
         .background {
             Image(.choose)
                 .resizable()
@@ -91,7 +92,8 @@ struct ChooseView: View {
     
     private func nextGame() {
         if controller.lives == 0 {
-            isShowingEndView = true
+//            isShowingEndView = true
+            isShowingScoreBoardView = true
         }
         Task {
             do {
@@ -101,9 +103,7 @@ struct ChooseView: View {
             } catch {
                 //canceled
             }
-           
         }
-
     }
 }
 

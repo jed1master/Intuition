@@ -10,10 +10,13 @@
 		F21160712BD965FD00E959F5 /* ChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21160702BD965FD00E959F5 /* ChooseView.swift */; };
 		F21160732BD9662D00E959F5 /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21160722BD9662D00E959F5 /* EndView.swift */; };
 		F21160762BD9669600E959F5 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21160752BD9669600E959F5 /* Controller.swift */; };
+		F268B1952BEE51B8009ADDF7 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268B1942BEE51B8009ADDF7 /* PlayerScore.swift */; };
+		F268B1992BEE53FC009ADDF7 /* players_data.json in Resources */ = {isa = PBXBuildFile; fileRef = F268B1982BEE53FC009ADDF7 /* players_data.json */; };
 		F286676C2BD804AA00F07DC8 /* IntuitionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F286676B2BD804AA00F07DC8 /* IntuitionApp.swift */; };
 		F286676E2BD804AA00F07DC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F286676D2BD804AA00F07DC8 /* ContentView.swift */; };
 		F28667702BD804AD00F07DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F286676F2BD804AD00F07DC8 /* Assets.xcassets */; };
 		F28667732BD804AD00F07DC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F28667722BD804AD00F07DC8 /* Preview Assets.xcassets */; };
+		F2B527FB2BF614FF00398EFD /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B527FA2BF614FF00398EFD /* ScoreBoardView.swift */; };
 		F2E00E9F2BDD23BC00F8E275 /* matrix.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2E00E9E2BDD23BC00F8E275 /* matrix.ttf */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +24,14 @@
 		F21160702BD965FD00E959F5 /* ChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseView.swift; sourceTree = "<group>"; };
 		F21160722BD9662D00E959F5 /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
 		F21160752BD9669600E959F5 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		F268B1942BEE51B8009ADDF7 /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
+		F268B1982BEE53FC009ADDF7 /* players_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = players_data.json; sourceTree = "<group>"; };
 		F28667682BD804AA00F07DC8 /* Intuition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Intuition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F286676B2BD804AA00F07DC8 /* IntuitionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntuitionApp.swift; sourceTree = "<group>"; };
 		F286676D2BD804AA00F07DC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F286676F2BD804AD00F07DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F28667722BD804AD00F07DC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F2B527FA2BF614FF00398EFD /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
 		F2E00E9E2BDD23BC00F8E275 /* matrix.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = matrix.ttf; sourceTree = "<group>"; };
 		F2E00EA12BDD258100F8E275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +52,7 @@
 			children = (
 				F286676D2BD804AA00F07DC8 /* ContentView.swift */,
 				F21160702BD965FD00E959F5 /* ChooseView.swift */,
+				F2B527FA2BF614FF00398EFD /* ScoreBoardView.swift */,
 				F21160722BD9662D00E959F5 /* EndView.swift */,
 			);
 			path = View;
@@ -57,6 +64,15 @@
 				F21160752BD9669600E959F5 /* Controller.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F268B1932BEE518F009ADDF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F268B1942BEE51B8009ADDF7 /* PlayerScore.swift */,
+				F268B1982BEE53FC009ADDF7 /* players_data.json */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F286675F2BD804AA00F07DC8 = {
@@ -80,6 +96,7 @@
 			children = (
 				F2E00EA12BDD258100F8E275 /* Info.plist */,
 				F286676B2BD804AA00F07DC8 /* IntuitionApp.swift */,
+				F268B1932BEE518F009ADDF7 /* Model */,
 				F21160772BD9669A00E959F5 /* Controller */,
 				F21160742BD9663E00E959F5 /* View */,
 				F286676F2BD804AD00F07DC8 /* Assets.xcassets */,
@@ -164,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28667732BD804AD00F07DC8 /* Preview Assets.xcassets in Resources */,
+				F268B1992BEE53FC009ADDF7 /* players_data.json in Resources */,
 				F28667702BD804AD00F07DC8 /* Assets.xcassets in Resources */,
 				F2E00E9F2BDD23BC00F8E275 /* matrix.ttf in Resources */,
 			);
@@ -177,6 +195,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F21160762BD9669600E959F5 /* Controller.swift in Sources */,
+				F268B1952BEE51B8009ADDF7 /* PlayerScore.swift in Sources */,
+				F2B527FB2BF614FF00398EFD /* ScoreBoardView.swift in Sources */,
 				F286676E2BD804AA00F07DC8 /* ContentView.swift in Sources */,
 				F21160712BD965FD00E959F5 /* ChooseView.swift in Sources */,
 				F21160732BD9662D00E959F5 /* EndView.swift in Sources */,

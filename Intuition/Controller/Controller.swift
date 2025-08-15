@@ -10,21 +10,41 @@ import SwiftUI
 
 class Controller: ObservableObject {
     
-    
-    
+    @Published var playersScore: [PlayerScore] = []
     @Published var lives: Int = 3
     @Published var score: Int = 0
-    
     @Published var buttonStatus = [true, false]
-    @Published var buttonOneColour = "white"
-    @Published var buttonTwoColur = "white"
     
     init() {
         createChoice()
+        loadPlayerScore()
+    }
+    
+    func loadPlayerScore() {
+        guard let url = Bundle.main.url(forResource: "players_data", withExtension: "json") else {return}
+        
+        let playerData = try! Data(contentsOf: url)
+        guard playerData.isEmpty == false else {return}
+        
+        guard let localPlayersScore = try? JSONDecoder().decode([PlayerScore].self, from: playerData) else {
+            fatalError("Can't decode players from local resource")
+        }
+        
+        playersScore = localPlayersScore
+    }
+    func savePlayerScore() {
+        guard let url = Bundle.main.url(forResource: "players_data", withExtension: "json") else {return}
+        
+        do {
+            let jsonData = try JSONEncoder().encode(playersScore)
+            try jsonData.write(to: url)
+        } catch {
+            print(error)
+        }
+        
     }
     
     func createChoice() {
-        
         buttonStatus.shuffle()
     }
     

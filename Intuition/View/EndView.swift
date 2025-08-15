@@ -38,7 +38,7 @@ struct EndView: View {
                 Spacer()
                 HStack(spacing: 100) {
                     Button(action: {
-                      isStartNewGame = true
+                        isStartNewGame = true
                     }, label: {
                         Text("Yes")
                             .frame(width: 90, height: 20)
@@ -61,7 +61,6 @@ struct EndView: View {
                     })
                 }
                 Spacer()
-                
             }
         }
     }
