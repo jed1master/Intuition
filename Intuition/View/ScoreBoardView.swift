@@ -14,7 +14,7 @@ struct ScoreBoardView: View {
     @State private var isShowingEndView: Bool = false
     @State private var showingAlert = false
     @State private var username = ""
-    
+    private let characterLimit = 10
     
     
     var body: some View {
@@ -30,18 +30,19 @@ struct ScoreBoardView: View {
         
             .overlay {
                 List {
-                    HStack(spacing: 270) {
+                    HStack(spacing: 260) {
                         Text("№")
                         Text("Name")
                         Text("Score")
                     }
                     .listRowBackground(Color.clear)
                     ForEach(controller.playersScore) { scoreRecord in
-                        HStack(spacing: 234) {
+                        HStack(spacing: 224) {
                             Text("\(scoreRecord.number)")
                             Text(scoreRecord.name)
                                 .frame(maxWidth: 150, alignment: .center)
                             Text("\(scoreRecord.score)")
+                                .frame(maxWidth: 10, alignment: .center)
                         }
                     }
                     .listRowBackground(Color.clear)
@@ -52,14 +53,14 @@ struct ScoreBoardView: View {
                 } label: {
                     Text("Continue")
                         .padding()
-                        .font(.custom("matrix", size: 25))
+                        .font(.custom("matrix", size: 20))
                         .foregroundStyle(.white)
                 }
                 
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.roundedRectangle(radius: 8))
                 .tint(.black.opacity(0.3))
-                .controlSize(.small)
+                .controlSize(.mini)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                 
             }
@@ -75,6 +76,11 @@ struct ScoreBoardView: View {
             .alert("hello chosen one", isPresented: $showingAlert) {
                 TextField("Username", text: $username)
                     .textInputAutocapitalization(.never)
+                    .onChange(of: username) { oldValue, newValue in
+                                        if newValue.count > characterLimit {
+                                            username = String(newValue.prefix(characterLimit))
+                                        }
+                                    }
                 Button("OK", action: checkAndSave)
                 Button("Cancel", role: .cancel) { }
             } message: {
